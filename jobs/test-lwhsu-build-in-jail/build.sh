@@ -1,5 +1,17 @@
 #!/bin/sh
 
-cd src
-make -DNO_CLEAN -j 4 buildworld TARGET=i386
-make -DNO_CLEAN -j 4 buildkernel TARGET=i386
+uname -a
+cat > a.c <<EOF
+#include <stdio.h>
+
+int main(int argc, const char *argv[])
+{
+        printf("start\n");
+        for (;;) {
+        }
+        printf("end\n");
+        return 0;
+}
+EOF
+make a
+./a
