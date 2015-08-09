@@ -101,11 +101,11 @@ fi
 if [ "$QUARANTINE" ]; then
 	if [ ${BUILDER_NETIF} -a ${BUILDER_JAIL_IP6} ]; then
 		sudo ifconfig ${BUILDER_NETIF} inet6 ${BUILDER_JAIL_IP6} -alias || true
-		sudo jail -m ip6=disable ${JNAME}
+		sudo jail -m ${JNAME} ip6=disable
 	fi
 	if [ ${BUILDER_NETIF} -a ${BUILDER_JAIL_IP4} ]; then
 		sudo ifconfig ${BUILDER_NETIF} inet ${BUILDER_JAIL_IP4} -alias || true
-		sudo jail -m ip4=disable ${JNAME}
+		sudo jail -m ${JNAME} ip4=disable
 	fi
 fi
 
