@@ -98,7 +98,7 @@ if [ -s freebsd-ci/jobs/${JOB_NAME}/pkg-list ]; then
 fi
 
 # remove network for quarantine env
-if [ "$QUARANTINE" ]
+if [ "$QUARANTINE" ]; then
 	if [ ${BUILDER_NETIF} -a ${BUILDER_JAIL_IP6} ]; then
 		sudo ifconfig ${BUILDER_NETIF} inet6 ${BUILDER_JAIL_IP6} -alias || true
 		sudo jail -m ip6=disable ${JNAME}
