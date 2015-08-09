@@ -88,6 +88,8 @@ sudo jail -c persist \
 	${JAIL_ARG_IP4} \
 	allow.chflags
 
+sudo jls -v -j ${JNAME} # debug
+
 echo "setup build environment"
 
 sudo jexec ${JNAME} sh -c "env ASSUME_ALWAYS_YES=yes pkg update"
@@ -108,6 +110,8 @@ if [ "$QUARANTINE" ]
 fi
 
 echo "build environment:"
+
+sudo jls -v -j ${JNAME} # debug
 
 sudo jexec ${JNAME} sh -c "uname -a"
 sudo jexec ${JNAME} sh -c "pkg info -q"
