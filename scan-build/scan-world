@@ -141,9 +141,9 @@ do_scan "$SRCDIR" "noclean" $DEST/${SRCDIR##*/}/SYS.LINT -DNO_MODULES -DNO_CLEAN
 
 echo "-=-> scan-world finished at `date "+%Y-%m-%d %H:%M:%S"`"
 
-if [ -z "$DRY" ]; then
-    cd $DEST/${SRCDIR##*/} || exit 1
-
-    echo "-=-> Renaming output dirs"
-    find . -type d -name "${DATE}-*-[1-9]" -prune -exec sh -c 'd={}; mv "$d" "${d%-??????-*-[1-9]*}-'$ARCH'"' \;
-fi
+#if [ -z "$DRY" ]; then
+#    cd $DEST/${SRCDIR##*/} || exit 1
+#
+#    echo "-=-> Renaming output dirs"
+#    find . -type d -name "${DATE}-*-[1-9]" -prune -exec sh -c 'd={}; mv "$d" "${d%-??????-*-[1-9]*}-'$ARCH'"' \;
+#fi
